@@ -2,10 +2,12 @@ version: '3'
 
 services:
   kamailio:
-    image: kamailio:lcr
+    build:
+      context: ./kamailio/docker
+      dockerfile: Dockerfile
     network_mode: "host"
     volumes:
-      - ./kamailio:/etc/kamailio
+      - ./kamailio/config:/etc/kamailio
     environment:
       - DBHOST=127.0.0.1
       - DBNAME=kamailio
@@ -24,13 +26,14 @@ services:
     command: kamailio -f /etc/kamailio/kamailio.cfg -DD -E
 
   rtpengine:
-    image: rtpengine-custom:latest
+    build:
+      context: ./rtpengine/docker
+      dockerfile: Dockerfile
     privileged: true
     network_mode: "host"
     volumes:
-      - ./rtpengine/rtpengine.conf:/etc/rtpengine/rtpengine.conf
-      - ./rtp-recordings:/var/spool/rtpengine/recordings
-      - ./rtp-cdrs:/var/spool/rtpengine/cdrs
+      - ./rtpengine/config/rtpengine.conf:/etc/rtpengine/rtpengine.conf
+      - ./rtpengine/recordings:/var/spool/rtpengine/recordings
 
   mariadb:
     image: mariadb:latest
