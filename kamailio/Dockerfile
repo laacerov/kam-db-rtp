@@ -70,4 +70,3 @@ EXPOSE 5060/tcp
 
 # Establecer el comando de inicio predeterminado
 CMD ["kamailio", "-DD", "-E", "-f", "/etc/kamailio/kamailio.cfg"]
-

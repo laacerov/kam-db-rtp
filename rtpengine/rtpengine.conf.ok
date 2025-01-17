@@ -1,0 +1,30 @@
+[rtpengine]
+
+### Table 0 is for kernel space forwarding. You will often use this in production
+#table = 0
+
+### for userspace forwarding only:
+table = -1
+
+### separate multiple interfaces with semicolons:
+interface = core/10.10.201.10;public/45.162.185.34
+
+listen-ng = 22222
+
+timeout = 60
+silent-timeout = 3600
+tos = 184
+
+port-min = 23000
+port-max = 32768
+# max-sessions = 5000
+
+# Run in the foreground, otherwise the container will exit
+foreground = true
+
+log-level = 7
+# log-stderr = false
+log-facility = local4
+log-facility-cdr = local6
+log-facility-rtcp = local7
+
