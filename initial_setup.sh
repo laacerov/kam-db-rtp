@@ -8,7 +8,7 @@ docker compose down
 #
 echo "*Deleting the DB volume*"
 sudo rm -rf db
-mkdir db
+mkdir db/config -p
 
 # Run the Docker container
 echo "*Starting Docker the inital DB will be created, yet blank* "
