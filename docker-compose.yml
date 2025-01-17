@@ -39,7 +39,7 @@ services:
     image: mariadb:latest
     network_mode: "host"
     volumes:
-      - ./db:/var/lib/mysql
+      - ./db/config:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=rootpw
       - MYSQL_DATABASE=kamailio
