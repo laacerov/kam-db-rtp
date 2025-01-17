@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  kamailio:
+    image: kamailio:lcr
+    network_mode: "host"
+    volumes:
+      - ./kamailio:/etc/kamailio
+    environment:
+      - DBHOST=127.0.0.1
+      - DBNAME=kamailio
+      - DBRWUSER=kamailio
+      - DBRWPW=kamailiorw
+      - DBROUSER=kamailioro
+      - DBROPW=kamailioro
+      - DBROOTUSER=root
+      - RTPENGINE=rtpengine
+      - RTPPROXY_SOCK=/var/run/rtpengine/rtpengine.sock
+      - RTPEXTRAS=--no-log
+    depends_on:
+      - mariadb
+      - phpmyadmin
+      - rtpengine
+    command: kamailio -f /etc/kamailio/kamailio.cfg -DD -E
+
+  rtpengine:
+    image: rtpengine-custom:latest
+    privileged: true
+    network_mode: "host"
+    volumes:
+      - ./rtpengine/rtpengine.conf:/etc/rtpengine/rtpengine.conf
+      - ./rtp-recordings:/var/spool/rtpengine/recordings
+      - ./rtp-cdrs:/var/spool/rtpengine/cdrs
+
+  mariadb:
+    image: mariadb:latest
+    network_mode: "host"
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpw
+      - MYSQL_DATABASE=kamailio
+      - MYSQL_USER=kamailio
+      - MYSQL_PASSWORD=kamailiopw
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    network_mode: "host"
+    environment:
+      - PMA_HOST=127.0.0.1
+    depends_on:
+      - mariadb
