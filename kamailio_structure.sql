@@ -16,63 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `kamailio`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `kamailio` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `kamailio`;
-
---
--- Table structure for table `acc`
---
-
-DROP TABLE IF EXISTS `acc`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `acc` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `method` varchar(16) NOT NULL DEFAULT '',
-  `from_tag` varchar(64) NOT NULL DEFAULT '',
-  `to_tag` varchar(64) NOT NULL DEFAULT '',
-  `callid` varchar(255) NOT NULL DEFAULT '',
-  `sip_code` varchar(3) NOT NULL DEFAULT '',
-  `sip_reason` varchar(128) NOT NULL DEFAULT '',
-  `time` datetime NOT NULL,
-  `src_user` varchar(64) NOT NULL DEFAULT '',
-  `src_domain` varchar(128) NOT NULL DEFAULT '',
-  `src_ip` varchar(64) NOT NULL DEFAULT '',
-  `dst_ouser` varchar(64) NOT NULL DEFAULT '',
-  `dst_user` varchar(64) NOT NULL DEFAULT '',
-  `dst_domain` varchar(128) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  KEY `callid_idx` (`callid`)
-) ENGINE=InnoDB AUTO_INCREMENT=340141052 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `acc_cdrs`
---
-
-DROP TABLE IF EXISTS `acc_cdrs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `acc_cdrs` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `start_time` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
-  `end_time` datetime NOT NULL DEFAULT '2000-01-01 00:00:00',
-  `duration` float(10,3) NOT NULL DEFAULT '0.000',
-  `llamante` varchar(64) NOT NULL DEFAULT '',
-  `domllamante` varchar(128) NOT NULL DEFAULT '',
-  `llamado` varchar(64) NOT NULL DEFAULT '',
-  `domllamado` varchar(128) NOT NULL DEFAULT '',
-  `codigo_sip` varchar(64) NOT NULL DEFAULT '200',
-  PRIMARY KEY (`id`),
-  KEY `start_time_idx` (`start_time`,`llamante`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=572009103 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Table structure for table `active_watchers`
 --
 
@@ -117,6 +60,15 @@ CREATE TABLE `active_watchers` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `active_watchers`
+--
+
+LOCK TABLES `active_watchers` WRITE;
+/*!40000 ALTER TABLE `active_watchers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `active_watchers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `address`
 --
 
@@ -133,6 +85,15 @@ CREATE TABLE `address` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `address`
+--
+
+LOCK TABLES `address` WRITE;
+/*!40000 ALTER TABLE `address` DISABLE KEYS */;
+/*!40000 ALTER TABLE `address` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `aliases`
@@ -173,6 +134,15 @@ CREATE TABLE `aliases` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `aliases`
+--
+
+LOCK TABLES `aliases` WRITE;
+/*!40000 ALTER TABLE `aliases` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aliases` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `carrier_name`
 --
 
@@ -185,6 +155,15 @@ CREATE TABLE `carrier_name` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrier_name`
+--
+
+LOCK TABLES `carrier_name` WRITE;
+/*!40000 ALTER TABLE `carrier_name` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrier_name` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `carrierfailureroute`
@@ -207,6 +186,15 @@ CREATE TABLE `carrierfailureroute` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carrierfailureroute`
+--
+
+LOCK TABLES `carrierfailureroute` WRITE;
+/*!40000 ALTER TABLE `carrierfailureroute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrierfailureroute` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `carrierroute`
@@ -233,6 +221,15 @@ CREATE TABLE `carrierroute` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `carrierroute`
+--
+
+LOCK TABLES `carrierroute` WRITE;
+/*!40000 ALTER TABLE `carrierroute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carrierroute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cpl`
 --
 
@@ -249,6 +246,15 @@ CREATE TABLE `cpl` (
   UNIQUE KEY `account_idx` (`username`,`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cpl`
+--
+
+LOCK TABLES `cpl` WRITE;
+/*!40000 ALTER TABLE `cpl` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cpl` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `dbaliases`
@@ -269,6 +275,15 @@ CREATE TABLE `dbaliases` (
   KEY `target_idx` (`username`,`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dbaliases`
+--
+
+LOCK TABLES `dbaliases` WRITE;
+/*!40000 ALTER TABLE `dbaliases` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dbaliases` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `dialog`
@@ -304,25 +319,7 @@ CREATE TABLE `dialog` (
   `xdata` varchar(512) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `hash_idx` (`hash_entry`,`hash_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=222288 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `dialog_vars`
---
-
-DROP TABLE IF EXISTS `dialog_vars`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `dialog_vars` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `hash_entry` int(10) unsigned NOT NULL,
-  `hash_id` int(10) unsigned NOT NULL,
-  `dialog_key` varchar(128) NOT NULL,
-  `dialog_value` varchar(512) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `hash_idx` (`hash_entry`,`hash_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59092885 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=256724 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -347,6 +344,15 @@ CREATE TABLE `dialplan` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `dialplan`
+--
+
+LOCK TABLES `dialplan` WRITE;
+/*!40000 ALTER TABLE `dialplan` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dialplan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `dispatcher`
 --
 
@@ -364,6 +370,15 @@ CREATE TABLE `dispatcher` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dispatcher`
+--
+
+LOCK TABLES `dispatcher` WRITE;
+/*!40000 ALTER TABLE `dispatcher` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dispatcher` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `domain`
@@ -402,6 +417,15 @@ CREATE TABLE `domain_attrs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `domain_attrs`
+--
+
+LOCK TABLES `domain_attrs` WRITE;
+/*!40000 ALTER TABLE `domain_attrs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `domain_attrs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `domain_name`
 --
 
@@ -414,6 +438,15 @@ CREATE TABLE `domain_name` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `domain_name`
+--
+
+LOCK TABLES `domain_name` WRITE;
+/*!40000 ALTER TABLE `domain_name` DISABLE KEYS */;
+/*!40000 ALTER TABLE `domain_name` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `domainpolicy`
@@ -436,6 +469,15 @@ CREATE TABLE `domainpolicy` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `domainpolicy`
+--
+
+LOCK TABLES `domainpolicy` WRITE;
+/*!40000 ALTER TABLE `domainpolicy` DISABLE KEYS */;
+/*!40000 ALTER TABLE `domainpolicy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `dr_gateways`
 --
 
@@ -453,6 +495,16 @@ CREATE TABLE `dr_gateways` (
   PRIMARY KEY (`gwid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dr_gateways`
+--
+
+LOCK TABLES `dr_gateways` WRITE;
+/*!40000 ALTER TABLE `dr_gateways` DISABLE KEYS */;
+INSERT INTO `dr_gateways` VALUES (1,0,'192.168.1.3',2,'00',NULL,'Carrier_example');
+/*!40000 ALTER TABLE `dr_gateways` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `dr_groups`
@@ -487,6 +539,15 @@ CREATE TABLE `dr_gw_lists` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `dr_gw_lists`
+--
+
+LOCK TABLES `dr_gw_lists` WRITE;
+/*!40000 ALTER TABLE `dr_gw_lists` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dr_gw_lists` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `dr_rules`
 --
 
@@ -507,6 +568,16 @@ CREATE TABLE `dr_rules` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `dr_rules`
+--
+
+LOCK TABLES `dr_rules` WRITE;
+/*!40000 ALTER TABLE `dr_rules` DISABLE KEYS */;
+INSERT INTO `dr_rules` VALUES (1,'51','77751','',0,'','1','Carrier_drouting');
+/*!40000 ALTER TABLE `dr_rules` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `globalblacklist`
 --
 
@@ -522,6 +593,15 @@ CREATE TABLE `globalblacklist` (
   KEY `globalblacklist_idx` (`prefix`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `globalblacklist`
+--
+
+LOCK TABLES `globalblacklist` WRITE;
+/*!40000 ALTER TABLE `globalblacklist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `globalblacklist` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `grp`
@@ -542,6 +622,15 @@ CREATE TABLE `grp` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `grp`
+--
+
+LOCK TABLES `grp` WRITE;
+/*!40000 ALTER TABLE `grp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `htable`
 --
 
@@ -558,6 +647,15 @@ CREATE TABLE `htable` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `htable`
+--
+
+LOCK TABLES `htable` WRITE;
+/*!40000 ALTER TABLE `htable` DISABLE KEYS */;
+/*!40000 ALTER TABLE `htable` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `imc_members`
@@ -578,6 +676,15 @@ CREATE TABLE `imc_members` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `imc_members`
+--
+
+LOCK TABLES `imc_members` WRITE;
+/*!40000 ALTER TABLE `imc_members` DISABLE KEYS */;
+/*!40000 ALTER TABLE `imc_members` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `imc_rooms`
 --
 
@@ -593,6 +700,15 @@ CREATE TABLE `imc_rooms` (
   UNIQUE KEY `name_domain_idx` (`name`,`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `imc_rooms`
+--
+
+LOCK TABLES `imc_rooms` WRITE;
+/*!40000 ALTER TABLE `imc_rooms` DISABLE KEYS */;
+/*!40000 ALTER TABLE `imc_rooms` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `lcr_gw`
@@ -622,6 +738,15 @@ CREATE TABLE `lcr_gw` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `lcr_gw`
+--
+
+LOCK TABLES `lcr_gw` WRITE;
+/*!40000 ALTER TABLE `lcr_gw` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lcr_gw` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `lcr_rule`
 --
 
@@ -643,6 +768,15 @@ CREATE TABLE `lcr_rule` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `lcr_rule`
+--
+
+LOCK TABLES `lcr_rule` WRITE;
+/*!40000 ALTER TABLE `lcr_rule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lcr_rule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `lcr_rule_target`
 --
 
@@ -661,6 +795,15 @@ CREATE TABLE `lcr_rule_target` (
   KEY `lcr_id_idx` (`lcr_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lcr_rule_target`
+--
+
+LOCK TABLES `lcr_rule_target` WRITE;
+/*!40000 ALTER TABLE `lcr_rule_target` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lcr_rule_target` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `location`
@@ -702,6 +845,15 @@ CREATE TABLE `location` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `location`
+--
+
+LOCK TABLES `location` WRITE;
+/*!40000 ALTER TABLE `location` DISABLE KEYS */;
+/*!40000 ALTER TABLE `location` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `location_attrs`
 --
 
@@ -722,6 +874,15 @@ CREATE TABLE `location_attrs` (
   KEY `last_modified_idx` (`last_modified`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `location_attrs`
+--
+
+LOCK TABLES `location_attrs` WRITE;
+/*!40000 ALTER TABLE `location_attrs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `location_attrs` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `missed_calls`
@@ -771,6 +932,15 @@ CREATE TABLE `mohqcalls` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `mohqcalls`
+--
+
+LOCK TABLES `mohqcalls` WRITE;
+/*!40000 ALTER TABLE `mohqcalls` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mohqcalls` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `mohqueues`
 --
 
@@ -791,6 +961,15 @@ CREATE TABLE `mohqueues` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `mohqueues`
+--
+
+LOCK TABLES `mohqueues` WRITE;
+/*!40000 ALTER TABLE `mohqueues` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mohqueues` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `mtree`
 --
 
@@ -805,6 +984,15 @@ CREATE TABLE `mtree` (
   UNIQUE KEY `tprefix_idx` (`tprefix`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mtree`
+--
+
+LOCK TABLES `mtree` WRITE;
+/*!40000 ALTER TABLE `mtree` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mtree` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `mtrees`
@@ -824,6 +1012,15 @@ CREATE TABLE `mtrees` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `mtrees`
+--
+
+LOCK TABLES `mtrees` WRITE;
+/*!40000 ALTER TABLE `mtrees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mtrees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pdt`
 --
 
@@ -841,6 +1038,15 @@ CREATE TABLE `pdt` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `pdt`
+--
+
+LOCK TABLES `pdt` WRITE;
+/*!40000 ALTER TABLE `pdt` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pdt` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pl_pipes`
 --
 
@@ -855,6 +1061,15 @@ CREATE TABLE `pl_pipes` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pl_pipes`
+--
+
+LOCK TABLES `pl_pipes` WRITE;
+/*!40000 ALTER TABLE `pl_pipes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pl_pipes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `presentity`
@@ -882,6 +1097,15 @@ CREATE TABLE `presentity` (
   KEY `account_idx` (`username`,`domain`,`event`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `presentity`
+--
+
+LOCK TABLES `presentity` WRITE;
+/*!40000 ALTER TABLE `presentity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `presentity` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pua`
@@ -920,6 +1144,15 @@ CREATE TABLE `pua` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `pua`
+--
+
+LOCK TABLES `pua` WRITE;
+/*!40000 ALTER TABLE `pua` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pua` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `purplemap`
 --
 
@@ -937,6 +1170,15 @@ CREATE TABLE `purplemap` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `purplemap`
+--
+
+LOCK TABLES `purplemap` WRITE;
+/*!40000 ALTER TABLE `purplemap` DISABLE KEYS */;
+/*!40000 ALTER TABLE `purplemap` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `re_grp`
 --
 
@@ -951,6 +1193,15 @@ CREATE TABLE `re_grp` (
   KEY `group_idx` (`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `re_grp`
+--
+
+LOCK TABLES `re_grp` WRITE;
+/*!40000 ALTER TABLE `re_grp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `re_grp` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `rls_presentity`
@@ -976,6 +1227,15 @@ CREATE TABLE `rls_presentity` (
   KEY `expires_idx` (`expires`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rls_presentity`
+--
+
+LOCK TABLES `rls_presentity` WRITE;
+/*!40000 ALTER TABLE `rls_presentity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rls_presentity` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `rls_watchers`
@@ -1018,6 +1278,15 @@ CREATE TABLE `rls_watchers` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `rls_watchers`
+--
+
+LOCK TABLES `rls_watchers` WRITE;
+/*!40000 ALTER TABLE `rls_watchers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rls_watchers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `rtpengine`
 --
 
@@ -1037,6 +1306,15 @@ CREATE TABLE `rtpengine` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `rtpengine`
+--
+
+LOCK TABLES `rtpengine` WRITE;
+/*!40000 ALTER TABLE `rtpengine` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rtpengine` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `rtpproxy`
 --
 
@@ -1053,6 +1331,15 @@ CREATE TABLE `rtpproxy` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rtpproxy`
+--
+
+LOCK TABLES `rtpproxy` WRITE;
+/*!40000 ALTER TABLE `rtpproxy` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rtpproxy` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `sca_subscriptions`
@@ -1084,6 +1371,15 @@ CREATE TABLE `sca_subscriptions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `sca_subscriptions`
+--
+
+LOCK TABLES `sca_subscriptions` WRITE;
+/*!40000 ALTER TABLE `sca_subscriptions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sca_subscriptions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `silo`
 --
 
@@ -1108,6 +1404,15 @@ CREATE TABLE `silo` (
   KEY `account_idx` (`username`,`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `silo`
+--
+
+LOCK TABLES `silo` WRITE;
+/*!40000 ALTER TABLE `silo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `silo` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `sip_trace`
@@ -1139,6 +1444,15 @@ CREATE TABLE `sip_trace` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `sip_trace`
+--
+
+LOCK TABLES `sip_trace` WRITE;
+/*!40000 ALTER TABLE `sip_trace` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sip_trace` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `speed_dial`
 --
 
@@ -1159,6 +1473,15 @@ CREATE TABLE `speed_dial` (
   UNIQUE KEY `speed_dial_idx` (`username`,`domain`,`sd_domain`,`sd_username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `speed_dial`
+--
+
+LOCK TABLES `speed_dial` WRITE;
+/*!40000 ALTER TABLE `speed_dial` DISABLE KEYS */;
+/*!40000 ALTER TABLE `speed_dial` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `subscriber`
@@ -1221,6 +1544,15 @@ CREATE TABLE `topos_d` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `topos_d`
+--
+
+LOCK TABLES `topos_d` WRITE;
+/*!40000 ALTER TABLE `topos_d` DISABLE KEYS */;
+/*!40000 ALTER TABLE `topos_d` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `topos_t`
 --
 
@@ -1262,6 +1594,15 @@ CREATE TABLE `topos_t` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `topos_t`
+--
+
+LOCK TABLES `topos_t` WRITE;
+/*!40000 ALTER TABLE `topos_t` DISABLE KEYS */;
+/*!40000 ALTER TABLE `topos_t` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `trusted`
 --
 
@@ -1280,6 +1621,15 @@ CREATE TABLE `trusted` (
   KEY `peer_idx` (`src_ip`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trusted`
+--
+
+LOCK TABLES `trusted` WRITE;
+/*!40000 ALTER TABLE `trusted` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trusted` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `uacreg`
@@ -1309,6 +1659,15 @@ CREATE TABLE `uacreg` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `uacreg`
+--
+
+LOCK TABLES `uacreg` WRITE;
+/*!40000 ALTER TABLE `uacreg` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uacreg` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `uid_credentials`
 --
 
@@ -1334,6 +1693,15 @@ CREATE TABLE `uid_credentials` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `uid_credentials`
+--
+
+LOCK TABLES `uid_credentials` WRITE;
+/*!40000 ALTER TABLE `uid_credentials` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uid_credentials` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `uid_domain`
 --
 
@@ -1350,6 +1718,15 @@ CREATE TABLE `uid_domain` (
   KEY `did_idx` (`did`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `uid_domain`
+--
+
+LOCK TABLES `uid_domain` WRITE;
+/*!40000 ALTER TABLE `uid_domain` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uid_domain` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `uid_domain_attrs`
@@ -1372,6 +1749,15 @@ CREATE TABLE `uid_domain_attrs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `uid_domain_attrs`
+--
+
+LOCK TABLES `uid_domain_attrs` WRITE;
+/*!40000 ALTER TABLE `uid_domain_attrs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uid_domain_attrs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `uid_global_attrs`
 --
 
@@ -1388,6 +1774,15 @@ CREATE TABLE `uid_global_attrs` (
   UNIQUE KEY `global_attrs_idx` (`name`,`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `uid_global_attrs`
+--
+
+LOCK TABLES `uid_global_attrs` WRITE;
+/*!40000 ALTER TABLE `uid_global_attrs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uid_global_attrs` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `uid_uri`
@@ -1408,6 +1803,15 @@ CREATE TABLE `uid_uri` (
   KEY `uri_uid` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `uid_uri`
+--
+
+LOCK TABLES `uid_uri` WRITE;
+/*!40000 ALTER TABLE `uid_uri` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uid_uri` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `uid_uri_attrs`
@@ -1431,6 +1835,15 @@ CREATE TABLE `uid_uri_attrs` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `uid_uri_attrs`
+--
+
+LOCK TABLES `uid_uri_attrs` WRITE;
+/*!40000 ALTER TABLE `uid_uri_attrs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uid_uri_attrs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `uid_user_attrs`
 --
 
@@ -1447,6 +1860,33 @@ CREATE TABLE `uid_user_attrs` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `userattrs_idx` (`uid`,`name`,`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `uid_user_attrs`
+--
+
+LOCK TABLES `uid_user_attrs` WRITE;
+/*!40000 ALTER TABLE `uid_user_attrs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uid_user_attrs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dialog_vars`
+--
+
+DROP TABLE IF EXISTS `dialog_vars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dialog_vars` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `hash_entry` int(10) unsigned NOT NULL,
+  `hash_id` int(10) unsigned NOT NULL,
+  `dialog_key` varchar(128) NOT NULL,
+  `dialog_value` varchar(512) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `hash_idx` (`hash_entry`,`hash_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=59092885 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1468,6 +1908,15 @@ CREATE TABLE `uri` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `uri`
+--
+
+LOCK TABLES `uri` WRITE;
+/*!40000 ALTER TABLE `uri` DISABLE KEYS */;
+/*!40000 ALTER TABLE `uri` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `userblacklist`
 --
 
@@ -1484,6 +1933,15 @@ CREATE TABLE `userblacklist` (
   KEY `userblacklist_idx` (`username`,`domain`,`prefix`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userblacklist`
+--
+
+LOCK TABLES `userblacklist` WRITE;
+/*!40000 ALTER TABLE `userblacklist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `userblacklist` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `usr_preferences`
@@ -1508,6 +1966,15 @@ CREATE TABLE `usr_preferences` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `usr_preferences`
+--
+
+LOCK TABLES `usr_preferences` WRITE;
+/*!40000 ALTER TABLE `usr_preferences` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usr_preferences` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `version`
 --
 
@@ -1520,6 +1987,16 @@ CREATE TABLE `version` (
   UNIQUE KEY `table_name_idx` (`table_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `version`
+--
+
+LOCK TABLES `version` WRITE;
+/*!40000 ALTER TABLE `version` DISABLE KEYS */;
+INSERT INTO `version` VALUES ('acc',5),('acc_cdrs',2),('active_watchers',12),('address',6),('aliases',8),('carrierfailureroute',2),('carrierroute',3),('carrier_name',1),('cpl',1),('dbaliases',1),('dialog',7),('dialog_vars',1),('dialplan',2),('dispatcher',4),('domain',2),('domainpolicy',2),('domain_attrs',1),('domain_name',1),('dr_gateways',3),('dr_groups',2),('dr_gw_lists',1),('dr_rules',3),('globalblacklist',1),('grp',2),('htable',2),('imc_members',1),('imc_rooms',1),('lcr_gw',3),('lcr_rule',3),('lcr_rule_target',1),('location',9),('location_attrs',1),('missed_calls',4),('mohqcalls',1),('mohqueues',1),('mtree',1),('mtrees',2),('pdt',1),('pl_pipes',1),('presentity',5),('pua',7),('purplemap',1),('re_grp',1),('rls_presentity',1),('rls_watchers',3),('rtpengine',1),('rtpproxy',1),('sca_subscriptions',2),('silo',8),('sip_trace',4),('speed_dial',2),('subscriber',7),('topos_d',1),('topos_t',1),('trusted',6),('uacreg',3),('uid_credentials',7),('uid_domain',2),('uid_domain_attrs',1),('uid_global_attrs',1),('uid_uri',3),('uid_uri_attrs',2),('uid_user_attrs',3),('uri',1),('userblacklist',1),('usr_preferences',2),('version',1),('watchers',3),('xcap',4);
+/*!40000 ALTER TABLE `version` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `watchers`
@@ -1541,6 +2018,15 @@ CREATE TABLE `watchers` (
   UNIQUE KEY `watcher_idx` (`presentity_uri`,`watcher_username`,`watcher_domain`,`event`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `watchers`
+--
+
+LOCK TABLES `watchers` WRITE;
+/*!40000 ALTER TABLE `watchers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `watchers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `xcap`
@@ -1566,6 +2052,15 @@ CREATE TABLE `xcap` (
   KEY `account_doc_uri_idx` (`username`,`domain`,`doc_uri`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `xcap`
+--
+
+LOCK TABLES `xcap` WRITE;
+/*!40000 ALTER TABLE `xcap` DISABLE KEYS */;
+/*!40000 ALTER TABLE `xcap` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1576,4 +2071,4 @@ CREATE TABLE `xcap` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-03 12:25:39
+-- Dump completed on 2025-01-03 13:18:06
